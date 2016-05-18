@@ -22,6 +22,7 @@ class Knight
     		queue = Array.new
         if self.start_square == self.end_square
             self.legacy = [self.start_square]
+            display_solution(self.legacy)
             return self.legacy
         end
         current_node = self
@@ -44,7 +45,8 @@ class Knight
     end
 
     def display_solution(moves)
-        puts "You made it in #{moves.length} moves!  Here's your path:"
+        moves.length == 1 ? s = "" : s = "s"
+        puts "You made it in #{moves.length} move#{s}!  Here's your path:"
         moves.each { |move| puts move.inspect}
     end
 end
@@ -55,7 +57,7 @@ end
 
 #Knight.new([3,3], [0,0]).knight_moves
 #Knight.new([0,0], [0,0]).knight_moves
-Knight.new([0,0], [5,2]).knight_moves
-#Knight.new([5,3], [1,3]).knight_moves
+#Knight.new([0,0], [5,2]).knight_moves
+Knight.new([5,3], [1,3]).knight_moves
 #Knight.new([0,0], [1,2]).knight_moves
 #Knight.new([0,0], [8,8]).knight_moves
